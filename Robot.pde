@@ -68,7 +68,6 @@ class Robot extends Enemy{
 
 	    x+=speed;
 	    if(x<0|| x>width-w){ speed *= -1; }
-	    println(cooldown);
 
 	    laser.update();
 	  }
