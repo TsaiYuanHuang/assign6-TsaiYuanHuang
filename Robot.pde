@@ -71,6 +71,7 @@ class Robot extends Enemy{
       if(cooldown <= 0){cooldown = LASER_COOLDOWN;}
       currentSpeed = speed;
     }
+    if(player.x == 4 * SOIL_SIZE && player.y == - SOIL_SIZE){ cooldown = LASER_COOLDOWN;} 
     laser.update();
     
   }
