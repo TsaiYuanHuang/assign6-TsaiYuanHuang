@@ -49,8 +49,7 @@ class Robot extends Enemy{
   void update(){
     
     boolean checkX = (speed>=0 && player.x+(w/2) > x+HAND_OFFSET_X_FORWARD) || (speed<=0 && player.x+(w/2) < x+HAND_OFFSET_X_BACKWARD);
-    boolean checkY = (y/SOIL_SIZE - player.row <= PLAYER_DETECT_RANGE_ROW && y/SOIL_SIZE - player.row >=0) || 
-                     (player.row - y/SOIL_SIZE <= PLAYER_DETECT_RANGE_ROW && player.row - y/SOIL_SIZE >=0);
+    boolean checkY = (abs(y/SOIL_SIZE - player.row)) <= PLAYER_DETECT_RANGE_ROW;
     
     float currentSpeed = speed;
     if(checkX == false || checkY == false){
