@@ -12,12 +12,12 @@ class Clock extends Item{
   }
   
   void checkCollision(Player player){
-    if(player.health < player.PLAYER_MAX_HEALTH
-      && isHit(x, y, SOIL_SIZE, SOIL_SIZE, player.x, player.y, player.w, player.h)){
+    if(!isAlive) return;
+    
+    if(isHit(x, y, SOIL_SIZE, SOIL_SIZE, player.x, player.y, player.w, player.h)){
 
         addTime(CLOCK_BONUS_SECONDS);
-        x = y = -1000; // Now that they're objects, toggle isAlive instead of throwing them away from screen
+        isAlive = false; // Now that they're objects, toggle isAlive instead of throwing them away from screen
 
       }
   }
-}
