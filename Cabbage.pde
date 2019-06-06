@@ -1,6 +1,7 @@
 class Cabbage extends Item{
-  // Requirement #1: Complete Cabbage Class
+	// Requirement #1: Complete Cabbage Class
 
+  
   Cabbage(float x, float y){
     super(x,y); 
   }
@@ -12,13 +13,13 @@ class Cabbage extends Item{
   }
   
   void checkCollision(Player player){
+    if(!isAlive) return;
+    
     if(player.health < player.PLAYER_MAX_HEALTH
       && isHit(x, y, SOIL_SIZE, SOIL_SIZE, player.x, player.y, player.w, player.h)){
 
         player.health ++;
-        x = y = -1000; // Now that they're objects, toggle isAlive instead of throwing them away from screen
+        isAlive = false;// Now that they're objects, toggle isAlive instead of throwing them away from screen
 
       }
   }
-
-}
